@@ -15,6 +15,27 @@ const checkAttribute = (attr, elements, func) =>
   );
 };
 
+const checkPattern = (elements) =>
+{
+  elements.forEach((el) =>
+  {
+    if (el.hasAttribute('pattern'))
+    {
+      console.log(el.pattern);
+      const re = new RegExp(el.pattern);
+      if (re.exec(el.value) == null)
+      {
+        el.setAttribute('style', 'border: 2px solid red');
+        lomakeOK++;
+      }
+      else
+      {
+        el.setAttribute('style', '');
+      }
+    }
+  });
+};
+
 const checkEmpty = (el) =>
 {
   console.log(el);
@@ -33,6 +54,7 @@ document.querySelector("form").addEventListener('submit', (evt) => {
   evt.preventDefault();
   lomakeOK = 0;
   checkAttribute('required', document.querySelectorAll('input'), checkEmpty);
+  checkPattern(document.querySelectorAll('input'));
   if (lomakeOK === 0)
   {
     document.querySelector("form").submit();

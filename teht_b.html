@@ -22,16 +22,16 @@
             Sukunimi:
             <input type="text" name="Sukunimi" required><br>
             E-mail:
-            <input type="text" name="E-mail" required><br>
+            <input type="email" name="E-mail" required pattern="^\S+@\S+\.\S+$"><br>
             Puhelin:
-            <input type="text" name="Puhelin" required><br>
+            <input type="tel" name="Puhelin" required pattern="^\+\d+$"><br>
             Osoite:
             <input type="text" name="Osoite"><br>
             Postinumero:
-            <input type="text" name="Postinumero"><br>
+            <input type="text" name="Postinumero" pattern="^\d{5}$"><br>
             Salasana:
             <input type="password" name="Salasana" required><br>
-            <input id="sub" type="submit" name="Lähetä">
+            <input type="submit" name="Lähetä">
         </form>
 
         <script src="js/main.js"></script>
